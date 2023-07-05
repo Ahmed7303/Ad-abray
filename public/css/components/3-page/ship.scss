@@ -1,0 +1,527 @@
+// Reapir ======================
+.repair {
+    background: #F9F9F9;
+    padding: 70px 0;
+
+    &_box {
+        display: flex;
+
+        &-col {
+            width: calc(33.33% - 20px);
+            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+
+            &:nth-of-type(even) {
+                flex-direction: column-reverse;
+                justify-content: flex-end;
+
+                .repair_box-col-photo {
+                    margin-bottom: 0;
+                    // margin-top: 15px;
+
+                    &::before {
+                        top: -22px;
+                    }
+
+                    &::after {
+                        top: -22px;
+                    }
+                }
+            }
+
+            &-photo {
+                width: 100%;
+                height: 300px;
+                margin-bottom: 15px;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -22px;
+                    left: 45%;
+                    width: 8px;
+                    height: 30px;
+                    background: url("../images/svg/chain.svg") no-repeat center;
+                    background-size: contain;
+                    z-index: 5;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -22px;
+                    right: 45%;
+                    width: 8px;
+                    height: 30px;
+                    background: url("../images/svg/chain.svg") no-repeat center;
+                    background-size: contain;
+                    z-index: 5;
+                }
+
+                img {
+                    @include ImgCov;
+                    border-radius: 5px;
+                    overflow: hidden;
+                }
+            }
+
+            &-txt {
+                min-height: 300px;
+                background: #fff;
+                padding: 20px;
+                background: #FFFFFF;
+                box-shadow: 5px 5px 20px rgba(159, 159, 159, 0.05);
+                border-radius: 5px;
+
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 26px;
+                letter-spacing: 0.01em;
+                text-transform: uppercase;
+                color: #111111;
+            }
+        }
+    }
+}
+
+// Ship Video =====================
+.ship_video {
+    padding: 70px 0;
+
+    .bg {
+        width: 100%;
+        height: 550px;
+        background: url("../images/video-bg.png") no-repeat center;
+        background-size: cover;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+        }
+    }
+
+    .play_btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform;
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 5;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 54%;
+            @include transform;
+            width: 15px;
+            height: 20px;
+            background: url("../images/svg/play.svg") no-repeat center;
+            background-size: contain;
+        }
+    }
+}
+
+// Service =====================
+.service {
+    background: #F9F9F9;
+    padding: 70px 0;
+
+    &_row {
+        display: flex;
+        margin-bottom: 70px;
+
+        &-photo {
+            width: 360px;
+            height: 240px;
+            border-radius: 5px 30px;
+            overflow: hidden;
+
+            img {
+                @include ImgCov;
+            }
+        }
+
+        &-group {
+            width: calc(100% - 285px);
+            margin-left: 45px;
+        }
+
+        &-title {
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: #000000;
+        }
+
+        &-subtitle {
+            position: relative;
+            margin: 15px 0 30px;
+
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: #000000;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -15px;
+                left: 0;
+                width: 55px;
+                height: 3px;
+                background: $green;
+            }
+        }
+
+        &-txt {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 24px;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+
+        &-link {
+            display: inline-block;
+
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: #000000;
+            border: 2px solid $green;
+            padding: 10px 20px;
+            @include transition;
+
+            &:hover {
+                color: #fff;
+                background: $green;
+            }
+        }
+    }
+
+    &_box {
+        display: flex;
+        margin: 0 -10px;
+
+        &-item {
+            width: calc(33.33% - 20px);
+            margin: 15px 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+
+            &-photo {
+                width: 100%;
+                height: 300px;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, .5);
+                }
+
+                img {
+                    @include ImgCov;
+                }
+            }
+
+            &-info {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include transform;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 80%;
+            }
+
+            &-icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 20px;
+
+                img {
+                    @include ImgCon;
+                }
+            }
+
+            &-title {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                text-align: center;
+                text-transform: capitalize;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+// Experience ===================
+.ex {
+    padding: 70px 0;
+
+    &_box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: -35px -10px;
+
+        &-item {
+            width: calc(33.333% - 20px);
+            margin: 35px 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            &-photo {
+                width: 100%;
+                height: 320px;
+
+                img {
+                    @include ImgCov;
+                    border-radius: 10px;
+                }
+            }
+
+            &-info {
+                margin-top: -40px;
+                background: #FFFFFF;
+                box-shadow: 2px 2px 30px rgba(167, 167, 167, 0.2);
+                border-radius: 5px;
+                padding: 25px 20px;
+                width: 290px;
+                min-height: 195px;
+            }
+
+            &-title {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 16px;
+                letter-spacing: 0.01em;
+                text-transform: capitalize;
+                color: #000000;
+                margin-bottom: 15px;
+            }
+
+            ul {
+                li {
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0.01em;
+                    text-transform: capitalize;
+                    color: #000000;
+                    margin-bottom: 10px;
+                    position: relative;
+                    padding-left: 10px;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 6px;
+                        left: 0;
+                        width: 5px;
+                        height: 5px;
+                        background: #C4C4C4;
+                        transform: rotate(45deg);
+                        border-radius: 1px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Certificate ===================
+.cer {
+    background: #F9F9F9;
+    padding: 70px 0;
+
+    &_box {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+
+        &-item {
+            width: calc(33.33% - 20px);
+            margin: 15px 10px;
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &:hover {
+                .open {
+                    opacity: 1;
+                }
+            }
+
+            &-photo {
+                width: 100%;
+
+                img {
+                    @include ImgCon;
+                }
+            }
+
+            &-title {
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.5;
+                text-align: center;
+                margin-top: 10px;
+                border-bottom: 2.5px solid $green;
+                // border-top: 1.5px solid $green;
+            }
+
+            .open {
+                background: rgba(0, 0, 0, .7);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                opacity: 0;
+                @include transition;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    @include transform;
+                    width: 50px;
+                    height: 50px;
+                    background: url("../images/svg/magnify.svg") no-repeat center;
+                    background-size: contain;
+                }
+            }
+        }
+    }
+}
+
+// Company =====================
+.company {
+    background: url("../images/map_bg.png") no-repeat center;
+    background-size: cover;
+    padding: 70px 0;
+
+    &_box {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px -10px 0 -10px;
+
+        &-item {
+            width: calc(20% - 20px);
+            height: 130px;
+            margin: 20px 10px;
+
+            background: #FFFFFF;
+            box-shadow: 10px 10px 15px rgba(177, 177, 177, 0.2), inset 10px 10px 30px rgba(177, 177, 177, 0.1);
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include transition;
+
+            &:hover {
+                box-shadow: 0px 0px 0px rgba(177, 177, 177, 0.2), inset 0px 0px 30px rgba(177, 177, 177, 0.1);
+            }
+
+            img {
+                width: 80%;
+                height: 80%;
+                object-fit: contain;
+                -o-object-fit: contain;
+            }
+        }
+    }
+
+}
+
+// MOdal video =====================
+
+.video {
+    &_modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .8);
+        backdrop-filter: blur(3px);
+        z-index: 1041;
+
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        &-box {
+            max-width: 650px;
+            height: 450px;
+            background: rgba(159, 159, 159, 0.05);
+            width: calc(100% - 30px);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            video {
+                @include ImgCon;
+                margin: auto;
+            }
+        }
+        
+        .close {
+            cursor: pointer;
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 20px;
+            height: 20px;
+
+            img,
+            svg {
+                @include ImgCon;
+                pointer-events: none;
+            }
+        }
+
+        .inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform;
+        }
+    }
+
+}

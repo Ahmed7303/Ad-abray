@@ -1,0 +1,208 @@
+// Modal ============================
+.road_map {
+    padding: 20px 0;
+
+    &-main-title {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin: 0 0 40px;
+        text-align: center;
+    }
+
+    &-svg {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 400px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            @include ImgCon;
+            width: fit-content;
+            margin-top: 0 !important;
+
+            path {
+                @include transition;
+            }
+        }
+
+        .add_map {
+            &:hover {
+                fill: rgba(0, 0, 0, .5) !important;
+            }
+        }
+    }
+
+    &-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .5);
+        backdrop-filter: blur(5px);
+        z-index: 1050;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        pointer-events: none;
+
+        &.active {
+            height: 100%;
+            overflow: unset;
+            opacity: 1;
+            pointer-events: unset;
+        }
+
+        &-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform;
+            max-width: 900px;
+            width: calc(100% - 50px);
+            max-height: calc(100% - 120px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 55px 35px 55px 35px;
+        }
+    }
+
+    &-tabs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 45px;
+
+        &-title {
+            padding: 10px 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, .5);
+            margin-right: 20px;
+            cursor: pointer;
+            max-width: 140px;
+            width: calc(100% - 50px);
+            text-align: center;
+
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.1;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.active {
+                background: $green;
+                border-color: $green;
+                color: #fff;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            &:hover {
+                background: $green;
+                border-color: $green;
+                color: #fff;
+                opacity: .8;
+            }
+        }
+    }
+
+    &-info {
+        display: flex;
+        margin: 0 -30px;
+        position: relative;
+        top: 30px;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        @include transition;
+
+        &.active {
+            overflow: unset;
+            height: unset;
+            opacity: 1;
+            top: 0;
+        }
+
+        &-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            max-width: 70%;
+            margin: 0 auto;
+
+            span {
+                width: 40px;
+                height: 40px;
+                margin-right: 15px;
+
+                img {
+                    @include ImgCon;
+                }
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.4;
+                margin-bottom: 0;
+
+                // width: calc(100% - 55px);
+            }
+        }
+    }
+
+    &-col {
+        width: calc(50% - 30px);
+        margin: 0 15px;
+        position: relative;
+
+        &:first-child {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -15px;
+                width: 1px;
+                height: 100%;
+                background: rgba(0, 0, 0, .5);
+            }
+        }
+
+        &-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.4;
+            margin-bottom: 30px;
+
+            &.in {
+                color: green;
+            }
+
+            &.out {
+                color: red;
+            }
+        }
+    }
+
+
+}
+
+.modClose {
+    svg {
+        pointer-events: none;
+    }
+}
+
+
+// Modal end ========================
